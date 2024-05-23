@@ -4,8 +4,11 @@
 
 #include "feed.h"
 #include "users.h"
+#include "friends.h"
+#include "posts.h"
+#include "utils_posts.h"
 
-void handle_input_feed(char *input)
+void handle_input_feed(char *input, int **friendship, tree_t *posts)
 {
 	char *commands = strdup(input);
 	char *cmd = strtok(commands, "\n ");
