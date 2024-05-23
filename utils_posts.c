@@ -37,20 +37,21 @@ tree_t *init_posts(void)
 	return posts;
 }
 
-void extend_sons(node_t *node)
+void extend_arr(void **arr, int count, int *capacity, int size)
 {
-	if (!node->sons) {
-		node->sons = (node_t **)calloc(1, sizeof(node_t *));
-		node->sons_capacity = 1;
-	} else if (node->sons_count == node->sons_capacity) {
-		node->sons_capacity *= 2;
-		node->sons = (node_t **)realloc(node->sons,
-										node->sons_capacity * sizeof(node_t *));
+	if (!*arr) {
+		*arr = (void *)calloc(1, size);
+		*capacity = 1;
+	}
+	if (count == *capacity) {
+		*capacity *= 2;
+		*arr = (void *)realloc(*arr, *capacity * size);
 	}
 }
 
 void add_child(node_t *parent, node_t *son)
 {
-	extend_sons(parent);
+	extend_arr((void **)&parent->sons, parent->sons_count, &parent->sons_capacity,
+			   sizeof(node_t *));
 	parent->sons[parent->sons_count++] = son;
 }

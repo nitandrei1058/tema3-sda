@@ -17,6 +17,7 @@ void add_post(char *name, char *title, tree_t *posts, node_t *parent_post)
 void create_post(char *name, char *title, tree_t *posts)
 {
 	add_post(name, title, posts, posts->root);
+	printf("Created %s for %s\n", title, name);
 }
 
 node_t *search_repost(node_t *node, int repost_id)
@@ -112,6 +113,17 @@ void common_repost(int id, int id_1, int id_2, tree_t *posts_tree)
 		   ((post_t *)lca->data)->id);
 }
 
+void like_post(char *name, int id, int repost_id, tree_t *posts_tree)
+{
+	(void)id;
+	(void)name;
+	(void)repost_id;
+	(void)posts_tree;
+
+	//((post_t *)post_node->data)->likes++;
+	printf("Post %d was liked\n", id);
+}
+
 void handle_input_posts(char *input, tree_t *posts)
 {
 	char *commands = strdup(input);
@@ -124,7 +136,6 @@ void handle_input_posts(char *input, tree_t *posts)
 		char *name = strtok(NULL, " ");
 		char *title = strtok(NULL, "\n");
 		create_post(name, title, posts);
-		printf("Created %s for %s\n", title, name);
 	} else if (!strcmp(cmd, "repost")) {
 		char *name = strtok(NULL, " ");
 		int id = atoi(strtok(NULL, "\n "));
@@ -139,8 +150,13 @@ void handle_input_posts(char *input, tree_t *posts)
 		int id_2 = atoi(strtok(NULL, "\n "));
 		common_repost(post_id, id_1, id_2, posts);
 	} else if (!strcmp(cmd, "like")) {
-		(void)cmd;
-		// TODO: Add function
+		char *name = strtok(NULL, " ");
+		int id = atoi(strtok(NULL, "\n "));
+		char *repost_char_id = strtok(NULL, "\n ");
+		int repost_id = 0;
+		if (repost_char_id)
+			repost_id = atoi(repost_char_id);
+		like_post(name, id, repost_id, posts);
 	} else if (!strcmp(cmd, "ratio"))
 		(void)cmd;
 	// TODO: Add function
