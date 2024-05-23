@@ -22,28 +22,6 @@ void create_post(char *name, char *title, tree_t *posts)
 	printf("Created %s for %s\n", title, name);
 }
 
-node_t *search_repost(node_t *node, int repost_id)
-{
-	if (((post_t *)node->data)->id == repost_id)
-		return node;
-	for (int i = 0; i < node->sons_count; i++) {
-		node_t *repost = search_repost(node->sons[i], repost_id);
-		if (repost)
-			return repost;
-	}
-	return NULL;
-}
-
-node_t *search_post(tree_t *posts, int post_id)
-{
-	node_t *node = posts->root;
-	for (int i = 0; i < node->sons_count; i++) {
-		if (((post_t *)node->sons[i]->data)->id == post_id)
-			return node->sons[i];
-	}
-	return NULL;
-}
-
 void repost(char *name, int id, int repost_id, tree_t *posts_tree)
 {
 	// Caut postarea

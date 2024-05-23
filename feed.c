@@ -22,6 +22,17 @@ void feed(char *name, int feed_size, int **friendship, tree_t *posts_tree)
 	}
 }
 
+void friends_repost(char *name, int id, int **friendship, tree_t *posts_tree)
+{
+	int user_id = get_user_id(name);
+	node_t *post_node = ((post_t *)(search_post(posts_tree, id)->data))->events->root;
+	for (int i = 0; i < post_node->sons_count; i++) {
+		post_t *post = (post_t *)post_node->sons[i]->data;
+		if (friendship[user_id][post->user_id])
+			printf("%s\n", get_user_name(post->user_id));
+	}
+}
+
 void handle_input_feed(char *input, int **friendship, tree_t *posts)
 {
 	char *commands = strdup(input);
@@ -34,13 +45,13 @@ void handle_input_feed(char *input, int **friendship, tree_t *posts)
 		char *name = strtok(NULL, "\n ");
 		int feed_size = atoi(strtok(NULL, "\n "));
 		feed(name, feed_size, friendship, posts);
-	} else if (!strcmp(cmd, "view-profile"))
+	} else if (!strcmp(cmd, "view-profile")) {
 		(void)cmd;
-	// TODO: Add function
-	else if (!strcmp(cmd, "friends-repost"))
-		(void)cmd;
-	// TODO: Add function
-	else if (!strcmp(cmd, "common-groups"))
+	} else if (!strcmp(cmd, "friends-repost")) {
+		char *name = strtok(NULL, "\n ");
+		int id = atoi(strtok(NULL, "\n "));
+		friends_repost(name, id, friendship, posts);
+	} else if (!strcmp(cmd, "common-groups"))
 		(void)cmd;
 	// TODO: Add function
 

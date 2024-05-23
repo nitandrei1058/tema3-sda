@@ -37,5 +37,7 @@ void free_post(post_t *post);
 void free_node(node_t *node);
 void free_tree(tree_t *tree);
 void free_posts(tree_t *posts);
+node_t *search_post(tree_t *posts, int post_id);
+node_t *search_repost(node_t *node, int repost_id);
 
 #endif // UTILS_POSTS_H
