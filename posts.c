@@ -204,23 +204,41 @@ int search_repost_index(node_t *node, int repost_id)
 	return -1;
 }
 
+int search_post_index(tree_t *posts, int post_id)
+{
+	node_t *node = posts->root;
+	for (int i = 0; i < node->sons_count; i++) {
+		if (((post_t *)node->sons[i]->data)->id == post_id)
+			return i;
+	}
+	return -1;
+}
+
 void delete_post(int id, int repost_id, tree_t *posts_tree)
 {
-	node_t *post_node =
-		((post_t *)(search_post(posts_tree, id)->data))->events->root;
-	char *title = ((post_t *)post_node->data)->title;
-	int post_node_index = 0;
 	if (repost_id) {
-		post_node = search_repost(post_node, repost_id)->parent;
-		post_node_index = search_repost_index(post_node, repost_id);
+		node_t *post_node =
+			((post_t *)(search_post(posts_tree, id)->data))->events->root;
+		char *title = ((post_t *)post_node->data)->title;
+		int post_node_index = 0;
+		for (int i = post_node_index; i < post_node->sons_count - 1; i++) {
+			post_node->sons[i] = post_node->sons[i + 1];
+		}
+		post_node->sons_count--;
+		free_node(post_node->sons[post_node->sons_count]);
+		printf("Deleted repost #%d of post %s\n", repost_id, title);
+	} else {
+		int post_node_index = search_post_index(posts_tree, id);
+		node_t *post_node = posts_tree->root->sons[post_node_index];
+		char *title = ((post_t *)post_node->data)->title;
+		for (int i = post_node_index; i < posts_tree->root->sons_count - 1; i++) {
+			posts_tree->root->sons[i] = posts_tree->root->sons[i + 1];
+		}
+		posts_tree->root->sons_count--;
+		free_tree(((post_t *)(post_node->data))->events);
+		free(post_node);
+		printf("Deleted %s\n", title);
 	}
-	for (int i = post_node_index; i < post_node->sons_count - 1; i++) {
-		post_node->sons[i] = post_node->sons[i + 1];
-	}
-	post_node->sons_count--;
-	free_node(post_node->sons[post_node->sons_count]);
-	printf("Deleted repost #%d of post %s\n", repost_id,
-		   title);
 }
 
 void handle_input_posts(char *input, tree_t *posts)
