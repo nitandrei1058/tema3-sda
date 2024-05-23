@@ -22,6 +22,36 @@ void feed(char *name, int feed_size, int **friendship, tree_t *posts_tree)
 	}
 }
 
+int check_user_reposted(node_t *node, int user_id)
+{
+	for (int i = 0; i < node->sons_count; i++) {
+		post_t *post = (post_t *)node->sons[i]->data;
+		if (post->user_id == user_id)
+			return 1;
+		if (check_user_reposted(node->sons[i], user_id))
+			return 1;
+	}
+	return 0;
+}
+
+void view_profile(char *name, tree_t *posts_tree)
+{
+	int user_id = get_user_id(name);
+	node_t **post_nodes = posts_tree->root->sons;
+
+	for (int i = 0; i < posts_tree->root->sons_count; i++) {
+		post_t *post = (post_t *)post_nodes[i]->data;
+		if (post->user_id == user_id)
+			printf("Posted: %s\n", post->title);
+	}
+
+	for (int i = 0; i < posts_tree->root->sons_count; i++) {
+		node_t *post_node = ((post_t *)post_nodes[i]->data)->events->root;
+		if (check_user_reposted(post_node, user_id))
+			printf("Reposted: %s\n", ((post_t *)post_node->data)->title);
+	}
+}
+
 void friends_repost(char *name, int id, int **friendship, tree_t *posts_tree)
 {
 	int user_id = get_user_id(name);
@@ -46,7 +76,8 @@ void handle_input_feed(char *input, int **friendship, tree_t *posts)
 		int feed_size = atoi(strtok(NULL, "\n "));
 		feed(name, feed_size, friendship, posts);
 	} else if (!strcmp(cmd, "view-profile")) {
-		(void)cmd;
+		char *name = strtok(NULL, "\n ");
+		view_profile(name, posts);
 	} else if (!strcmp(cmd, "friends-repost")) {
 		char *name = strtok(NULL, "\n ");
 		int id = atoi(strtok(NULL, "\n "));

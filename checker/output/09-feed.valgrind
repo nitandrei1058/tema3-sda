@@ -1,298 +1,298 @@
-==56022== Memcheck, a memory error detector
-==56022== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==56022== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==56022== Command: ./feed
-==56022== Parent PID: 21691
-==56022== 
-==56022== Invalid read of size 8
-==56022==    at 0x109C3B: dfs_reposts (posts.c:41)
-==56022==    by 0x109D44: get_reposts (posts.c:54)
-==56022==    by 0x10A9F0: handle_input_posts (posts.c:269)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Address 0x4c28030 is 0 bytes inside a block of size 32 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1098DF: free_node (utils_posts.c:81)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109688: init_node (utils_posts.c:23)
-==56022==    by 0x109B1F: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid read of size 4
-==56022==    at 0x109C3E: dfs_reposts (posts.c:41)
-==56022==    by 0x109D44: get_reposts (posts.c:54)
-==56022==    by 0x10A9F0: handle_input_posts (posts.c:269)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Address 0x4c27fc8 is 8 bytes inside a block of size 40 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109853: free_post (utils_posts.c:69)
-==56022==    by 0x1098D3: free_node (utils_posts.c:80)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1095F3: init_post (utils_posts.c:7)
-==56022==    by 0x109B0F: add_post (posts.c:15)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid read of size 8
-==56022==    at 0x109C52: dfs_reposts (posts.c:40)
-==56022==    by 0x109D44: get_reposts (posts.c:54)
-==56022==    by 0x10A9F0: handle_input_posts (posts.c:269)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Address 0x4c28030 is 0 bytes inside a block of size 32 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1098DF: free_node (utils_posts.c:81)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109688: init_node (utils_posts.c:23)
-==56022==    by 0x109B1F: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid read of size 4
-==56022==    at 0x109C55: dfs_reposts (posts.c:40)
-==56022==    by 0x109D44: get_reposts (posts.c:54)
-==56022==    by 0x10A9F0: handle_input_posts (posts.c:269)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Address 0x4c27fcc is 12 bytes inside a block of size 40 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109853: free_post (utils_posts.c:69)
-==56022==    by 0x1098D3: free_node (utils_posts.c:80)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1095F3: init_post (utils_posts.c:7)
-==56022==    by 0x109B0F: add_post (posts.c:15)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid read of size 4
-==56022==    at 0x109C9E: dfs_reposts (posts.c:42)
-==56022==    by 0x109D44: get_reposts (posts.c:54)
-==56022==    by 0x10A9F0: handle_input_posts (posts.c:269)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Address 0x4c28048 is 24 bytes inside a block of size 32 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1098DF: free_node (utils_posts.c:81)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109688: init_node (utils_posts.c:23)
-==56022==    by 0x109B1F: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid read of size 4
-==56022==    at 0x1098A0: free_node (utils_posts.c:76)
-==56022==    by 0x109897: free_node (utils_posts.c:77)
-==56022==    by 0x10990A: free_tree (utils_posts.c:88)
-==56022==    by 0x10995D: free_posts (utils_posts.c:95)
-==56022==    by 0x10BAD7: main (social_media.c:83)
-==56022==  Address 0x4c3c898 is 24 bytes inside a block of size 32 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1098DF: free_node (utils_posts.c:81)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109688: init_node (utils_posts.c:23)
-==56022==    by 0x109B1F: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid read of size 8
-==56022==    at 0x1098AC: free_node (utils_posts.c:78)
-==56022==    by 0x109897: free_node (utils_posts.c:77)
-==56022==    by 0x10990A: free_tree (utils_posts.c:88)
-==56022==    by 0x10995D: free_posts (utils_posts.c:95)
-==56022==    by 0x10BAD7: main (social_media.c:83)
-==56022==  Address 0x4c3c888 is 8 bytes inside a block of size 32 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1098DF: free_node (utils_posts.c:81)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109688: init_node (utils_posts.c:23)
-==56022==    by 0x109B1F: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid read of size 8
-==56022==    at 0x1098C9: free_node (utils_posts.c:80)
-==56022==    by 0x109897: free_node (utils_posts.c:77)
-==56022==    by 0x10990A: free_tree (utils_posts.c:88)
-==56022==    by 0x10995D: free_posts (utils_posts.c:95)
-==56022==    by 0x10BAD7: main (social_media.c:83)
-==56022==  Address 0x4c3c880 is 0 bytes inside a block of size 32 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1098DF: free_node (utils_posts.c:81)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109688: init_node (utils_posts.c:23)
-==56022==    by 0x109B1F: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid read of size 8
-==56022==    at 0x109814: free_post (utils_posts.c:65)
-==56022==    by 0x1098D3: free_node (utils_posts.c:80)
-==56022==    by 0x109897: free_node (utils_posts.c:77)
-==56022==    by 0x10990A: free_tree (utils_posts.c:88)
-==56022==    by 0x10995D: free_posts (utils_posts.c:95)
-==56022==    by 0x10BAD7: main (social_media.c:83)
-==56022==  Address 0x4c3c810 is 0 bytes inside a block of size 40 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109853: free_post (utils_posts.c:69)
-==56022==    by 0x1098D3: free_node (utils_posts.c:80)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1095F3: init_post (utils_posts.c:7)
-==56022==    by 0x109B0F: add_post (posts.c:15)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid read of size 8
-==56022==    at 0x10982F: free_post (utils_posts.c:67)
-==56022==    by 0x1098D3: free_node (utils_posts.c:80)
-==56022==    by 0x109897: free_node (utils_posts.c:77)
-==56022==    by 0x10990A: free_tree (utils_posts.c:88)
-==56022==    by 0x10995D: free_posts (utils_posts.c:95)
-==56022==    by 0x10BAD7: main (social_media.c:83)
-==56022==  Address 0x4c3c828 is 24 bytes inside a block of size 40 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109853: free_post (utils_posts.c:69)
-==56022==    by 0x1098D3: free_node (utils_posts.c:80)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1095F3: init_post (utils_posts.c:7)
-==56022==    by 0x109B0F: add_post (posts.c:15)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid free() / delete / delete[] / realloc()
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109853: free_post (utils_posts.c:69)
-==56022==    by 0x1098D3: free_node (utils_posts.c:80)
-==56022==    by 0x109897: free_node (utils_posts.c:77)
-==56022==    by 0x10990A: free_tree (utils_posts.c:88)
-==56022==    by 0x10995D: free_posts (utils_posts.c:95)
-==56022==    by 0x10BAD7: main (social_media.c:83)
-==56022==  Address 0x4c3c810 is 0 bytes inside a block of size 40 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109853: free_post (utils_posts.c:69)
-==56022==    by 0x1098D3: free_node (utils_posts.c:80)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1095F3: init_post (utils_posts.c:7)
-==56022==    by 0x109B0F: add_post (posts.c:15)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== Invalid free() / delete / delete[] / realloc()
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1098DF: free_node (utils_posts.c:81)
-==56022==    by 0x109897: free_node (utils_posts.c:77)
-==56022==    by 0x10990A: free_tree (utils_posts.c:88)
-==56022==    by 0x10995D: free_posts (utils_posts.c:95)
-==56022==    by 0x10BAD7: main (social_media.c:83)
-==56022==  Address 0x4c3c880 is 0 bytes inside a block of size 32 free'd
-==56022==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1098DF: free_node (utils_posts.c:81)
-==56022==    by 0x10A43D: delete_post (posts.c:196)
-==56022==    by 0x10A8D5: handle_input_posts (posts.c:255)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022==  Block was alloc'd at
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109688: init_node (utils_posts.c:23)
-==56022==    by 0x109B1F: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== 
-==56022== HEAP SUMMARY:
-==56022==     in use at exit: 224 bytes in 7 blocks
-==56022==   total heap usage: 5,752 allocs, 5,749 frees, 1,385,936 bytes allocated
-==56022== 
-==56022== 8 bytes in 1 blocks are indirectly lost in loss record 1 of 4
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109731: extend_arr (utils_posts.c:44)
-==56022==    by 0x1097BF: add_child (utils_posts.c:55)
-==56022==    by 0x109B31: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== 32 bytes in 1 blocks are indirectly lost in loss record 2 of 4
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109688: init_node (utils_posts.c:23)
-==56022==    by 0x109B1F: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== 120 bytes in 3 blocks are indirectly lost in loss record 3 of 4
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x1095F3: init_post (utils_posts.c:7)
-==56022==    by 0x109B0F: add_post (posts.c:15)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== 224 (64 direct, 160 indirect) bytes in 2 blocks are definitely lost in loss record 4 of 4
-==56022==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==56022==    by 0x109688: init_node (utils_posts.c:23)
-==56022==    by 0x109B1F: add_post (posts.c:16)
-==56022==    by 0x109C02: repost (posts.c:34)
-==56022==    by 0x10A6AD: handle_input_posts (posts.c:232)
-==56022==    by 0x10BA4C: main (social_media.c:60)
-==56022== 
-==56022== LEAK SUMMARY:
-==56022==    definitely lost: 64 bytes in 2 blocks
-==56022==    indirectly lost: 160 bytes in 5 blocks
-==56022==      possibly lost: 0 bytes in 0 blocks
-==56022==    still reachable: 0 bytes in 0 blocks
-==56022==         suppressed: 0 bytes in 0 blocks
-==56022== 
-==56022== For lists of detected and suppressed errors, rerun with: -s
-==56022== ERROR SUMMARY: 25 errors from 13 contexts (suppressed: 0 from 0)
+==69916== Memcheck, a memory error detector
+==69916== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==69916== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==69916== Command: ./feed
+==69916== Parent PID: 65262
+==69916== 
+==69916== Invalid read of size 8
+==69916==    at 0x109C3B: dfs_reposts (posts.c:41)
+==69916==    by 0x109D44: get_reposts (posts.c:54)
+==69916==    by 0x10A9F0: handle_input_posts (posts.c:269)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Address 0x4c28030 is 0 bytes inside a block of size 32 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1098DF: free_node (utils_posts.c:81)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109688: init_node (utils_posts.c:23)
+==69916==    by 0x109B1F: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid read of size 4
+==69916==    at 0x109C3E: dfs_reposts (posts.c:41)
+==69916==    by 0x109D44: get_reposts (posts.c:54)
+==69916==    by 0x10A9F0: handle_input_posts (posts.c:269)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Address 0x4c27fc8 is 8 bytes inside a block of size 40 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109853: free_post (utils_posts.c:69)
+==69916==    by 0x1098D3: free_node (utils_posts.c:80)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1095F3: init_post (utils_posts.c:7)
+==69916==    by 0x109B0F: add_post (posts.c:15)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid read of size 8
+==69916==    at 0x109C52: dfs_reposts (posts.c:40)
+==69916==    by 0x109D44: get_reposts (posts.c:54)
+==69916==    by 0x10A9F0: handle_input_posts (posts.c:269)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Address 0x4c28030 is 0 bytes inside a block of size 32 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1098DF: free_node (utils_posts.c:81)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109688: init_node (utils_posts.c:23)
+==69916==    by 0x109B1F: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid read of size 4
+==69916==    at 0x109C55: dfs_reposts (posts.c:40)
+==69916==    by 0x109D44: get_reposts (posts.c:54)
+==69916==    by 0x10A9F0: handle_input_posts (posts.c:269)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Address 0x4c27fcc is 12 bytes inside a block of size 40 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109853: free_post (utils_posts.c:69)
+==69916==    by 0x1098D3: free_node (utils_posts.c:80)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1095F3: init_post (utils_posts.c:7)
+==69916==    by 0x109B0F: add_post (posts.c:15)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid read of size 4
+==69916==    at 0x109C9E: dfs_reposts (posts.c:42)
+==69916==    by 0x109D44: get_reposts (posts.c:54)
+==69916==    by 0x10A9F0: handle_input_posts (posts.c:269)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Address 0x4c28048 is 24 bytes inside a block of size 32 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1098DF: free_node (utils_posts.c:81)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109688: init_node (utils_posts.c:23)
+==69916==    by 0x109B1F: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid read of size 4
+==69916==    at 0x1098A0: free_node (utils_posts.c:76)
+==69916==    by 0x109897: free_node (utils_posts.c:77)
+==69916==    by 0x10990A: free_tree (utils_posts.c:88)
+==69916==    by 0x10995D: free_posts (utils_posts.c:95)
+==69916==    by 0x10BD71: main (social_media.c:83)
+==69916==  Address 0x4c3c898 is 24 bytes inside a block of size 32 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1098DF: free_node (utils_posts.c:81)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109688: init_node (utils_posts.c:23)
+==69916==    by 0x109B1F: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid read of size 8
+==69916==    at 0x1098AC: free_node (utils_posts.c:78)
+==69916==    by 0x109897: free_node (utils_posts.c:77)
+==69916==    by 0x10990A: free_tree (utils_posts.c:88)
+==69916==    by 0x10995D: free_posts (utils_posts.c:95)
+==69916==    by 0x10BD71: main (social_media.c:83)
+==69916==  Address 0x4c3c888 is 8 bytes inside a block of size 32 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1098DF: free_node (utils_posts.c:81)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109688: init_node (utils_posts.c:23)
+==69916==    by 0x109B1F: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid read of size 8
+==69916==    at 0x1098C9: free_node (utils_posts.c:80)
+==69916==    by 0x109897: free_node (utils_posts.c:77)
+==69916==    by 0x10990A: free_tree (utils_posts.c:88)
+==69916==    by 0x10995D: free_posts (utils_posts.c:95)
+==69916==    by 0x10BD71: main (social_media.c:83)
+==69916==  Address 0x4c3c880 is 0 bytes inside a block of size 32 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1098DF: free_node (utils_posts.c:81)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109688: init_node (utils_posts.c:23)
+==69916==    by 0x109B1F: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid read of size 8
+==69916==    at 0x109814: free_post (utils_posts.c:65)
+==69916==    by 0x1098D3: free_node (utils_posts.c:80)
+==69916==    by 0x109897: free_node (utils_posts.c:77)
+==69916==    by 0x10990A: free_tree (utils_posts.c:88)
+==69916==    by 0x10995D: free_posts (utils_posts.c:95)
+==69916==    by 0x10BD71: main (social_media.c:83)
+==69916==  Address 0x4c3c810 is 0 bytes inside a block of size 40 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109853: free_post (utils_posts.c:69)
+==69916==    by 0x1098D3: free_node (utils_posts.c:80)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1095F3: init_post (utils_posts.c:7)
+==69916==    by 0x109B0F: add_post (posts.c:15)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid read of size 8
+==69916==    at 0x10982F: free_post (utils_posts.c:67)
+==69916==    by 0x1098D3: free_node (utils_posts.c:80)
+==69916==    by 0x109897: free_node (utils_posts.c:77)
+==69916==    by 0x10990A: free_tree (utils_posts.c:88)
+==69916==    by 0x10995D: free_posts (utils_posts.c:95)
+==69916==    by 0x10BD71: main (social_media.c:83)
+==69916==  Address 0x4c3c828 is 24 bytes inside a block of size 40 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109853: free_post (utils_posts.c:69)
+==69916==    by 0x1098D3: free_node (utils_posts.c:80)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1095F3: init_post (utils_posts.c:7)
+==69916==    by 0x109B0F: add_post (posts.c:15)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid free() / delete / delete[] / realloc()
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109853: free_post (utils_posts.c:69)
+==69916==    by 0x1098D3: free_node (utils_posts.c:80)
+==69916==    by 0x109897: free_node (utils_posts.c:77)
+==69916==    by 0x10990A: free_tree (utils_posts.c:88)
+==69916==    by 0x10995D: free_posts (utils_posts.c:95)
+==69916==    by 0x10BD71: main (social_media.c:83)
+==69916==  Address 0x4c3c810 is 0 bytes inside a block of size 40 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109853: free_post (utils_posts.c:69)
+==69916==    by 0x1098D3: free_node (utils_posts.c:80)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1095F3: init_post (utils_posts.c:7)
+==69916==    by 0x109B0F: add_post (posts.c:15)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== Invalid free() / delete / delete[] / realloc()
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1098DF: free_node (utils_posts.c:81)
+==69916==    by 0x109897: free_node (utils_posts.c:77)
+==69916==    by 0x10990A: free_tree (utils_posts.c:88)
+==69916==    by 0x10995D: free_posts (utils_posts.c:95)
+==69916==    by 0x10BD71: main (social_media.c:83)
+==69916==  Address 0x4c3c880 is 0 bytes inside a block of size 32 free'd
+==69916==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1098DF: free_node (utils_posts.c:81)
+==69916==    by 0x10A43D: delete_post (posts.c:196)
+==69916==    by 0x10A8D5: handle_input_posts (posts.c:255)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916==  Block was alloc'd at
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109688: init_node (utils_posts.c:23)
+==69916==    by 0x109B1F: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== 
+==69916== HEAP SUMMARY:
+==69916==     in use at exit: 224 bytes in 7 blocks
+==69916==   total heap usage: 5,752 allocs, 5,749 frees, 1,385,936 bytes allocated
+==69916== 
+==69916== 8 bytes in 1 blocks are indirectly lost in loss record 1 of 4
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109731: extend_arr (utils_posts.c:44)
+==69916==    by 0x1097BF: add_child (utils_posts.c:55)
+==69916==    by 0x109B31: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== 32 bytes in 1 blocks are indirectly lost in loss record 2 of 4
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109688: init_node (utils_posts.c:23)
+==69916==    by 0x109B1F: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== 120 bytes in 3 blocks are indirectly lost in loss record 3 of 4
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x1095F3: init_post (utils_posts.c:7)
+==69916==    by 0x109B0F: add_post (posts.c:15)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== 224 (64 direct, 160 indirect) bytes in 2 blocks are definitely lost in loss record 4 of 4
+==69916==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==69916==    by 0x109688: init_node (utils_posts.c:23)
+==69916==    by 0x109B1F: add_post (posts.c:16)
+==69916==    by 0x109C02: repost (posts.c:34)
+==69916==    by 0x10A6AD: handle_input_posts (posts.c:232)
+==69916==    by 0x10BCE6: main (social_media.c:60)
+==69916== 
+==69916== LEAK SUMMARY:
+==69916==    definitely lost: 64 bytes in 2 blocks
+==69916==    indirectly lost: 160 bytes in 5 blocks
+==69916==      possibly lost: 0 bytes in 0 blocks
+==69916==    still reachable: 0 bytes in 0 blocks
+==69916==         suppressed: 0 bytes in 0 blocks
+==69916== 
+==69916== For lists of detected and suppressed errors, rerun with: -s
+==69916== ERROR SUMMARY: 25 errors from 13 contexts (suppressed: 0 from 0)
