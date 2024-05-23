@@ -82,9 +82,9 @@ void handle_input_feed(char *input, int **friendship, tree_t *posts)
 		char *name = strtok(NULL, "\n ");
 		int id = atoi(strtok(NULL, "\n "));
 		friends_repost(name, id, friendship, posts);
-	} else if (!strcmp(cmd, "common-groups"))
+	} else if (!strcmp(cmd, "common-groups")) {
 		(void)cmd;
-	// TODO: Add function
+	}
 
 	free(commands);
 }
