@@ -80,5 +80,9 @@ int main(void)
     free(friendship);
 	#endif
 
+	#ifdef TASK_2
+	free_posts(posts);
+	#endif
+
 	return 0;
 }

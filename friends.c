@@ -38,9 +38,8 @@ void suggest_friends(char *user, int **friendship)
 	bool suggestions_found = false;
 	printf("Suggestions for %s:\n", user);
 	for (uint16_t i = 0; i < MAX_PEOPLE; ++i) {
-		if (i == user_id || friendship[user_id][i]) {
+		if (i == user_id || friendship[user_id][i])
 			continue;
-		}
 
 		for (uint16_t j = 0; j < MAX_PEOPLE; ++j) {
 			if (friendship[user_id][j] && friendship[j][i]) {
@@ -51,9 +50,8 @@ void suggest_friends(char *user, int **friendship)
 		}
 	}
 
-	if (!suggestions_found) {
+	if (!suggestions_found)
 		printf("There are no suggestions for %s\n", user);
-	}
 }
 
 void find_distance(char *user1, char *user2, int **friendship)
@@ -125,9 +123,8 @@ void common_friends(char *user1, char *user2, int **friendship)
 	} else {
 		printf("The common friends between %s and %s are:\n", user1, user2);
 		for (uint16_t i = 0; i < MAX_PEOPLE; i++) {
-			if (friendship[user1_id][i] && friendship[user2_id][i]) {
+			if (friendship[user1_id][i] && friendship[user2_id][i])
 				printf("%s\n", get_user_name(i));
-			}
 		}
 	}
 }
@@ -143,9 +140,8 @@ void count_friends(char *user, int **friendship)
 
 	int friend_count = 0;
 	for (uint16_t i = 0; i < MAX_PEOPLE; i++) {
-		if (friendship[user_id][i]) {
+		if (friendship[user_id][i])
 			friend_count++;
-		}
 	}
 
 	printf("%s has %d friends\n", user, friend_count);
@@ -169,9 +165,8 @@ void most_popular(char *user, int **friendship)
 			int friend_connections = 0;
 			own++;
 			for (uint16_t j = 0; j < MAX_PEOPLE; j++) {
-				if (friendship[i][j]) {
+				if (friendship[i][j])
 					friend_connections++;
-				}
 			}
 			if (friend_connections > max_connections ||
 				(friend_connections == max_connections &&
@@ -217,35 +212,30 @@ void handle_input_friends(char *input, int **friendship)
 	} else if (!strcmp(cmd, "suggestions")) {
 		// TODO: Add function
 		char *user = strtok(NULL, "\n ");
-		if (user) {
+		if (user)
 			suggest_friends(user, friendship);
-		}
 	} else if (!strcmp(cmd, "distance")) {
 		// TODO: Add function
 		char *user1 = strtok(NULL, " ");
 		char *user2 = strtok(NULL, "\n ");
-		if (user1 && user2) {
+		if (user1 && user2)
 			find_distance(user1, user2, friendship);
-		}
 	} else if (!strcmp(cmd, "common")) {
 		// TODO: Add function
 		char *user1 = strtok(NULL, " ");
 		char *user2 = strtok(NULL, "\n ");
-		if (user1 && user2) {
+		if (user1 && user2)
 			common_friends(user1, user2, friendship);
-		}
 	} else if (!strcmp(cmd, "friends")) {
 		// TODO: Add function
 		char *user = strtok(NULL, "\n ");
-		if (user) {
+		if (user)
 			count_friends(user, friendship);
-		}
 	} else if (!strcmp(cmd, "popular")) {
 		// TODO: Add function
 		char *user = strtok(NULL, "\n ");
-		if (user) {
+		if (user)
 			most_popular(user, friendship);
-		}
 	}
 
 	free(commands);

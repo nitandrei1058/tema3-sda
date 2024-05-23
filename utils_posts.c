@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-post_t *init_post(int id, char *title, int user_id)
+post_t *init_post(int id, char *title, int user_id, int is_repost)
 {
 	post_t *post = (post_t *)calloc(1, sizeof(post_t));
 	post->id = id;
@@ -13,7 +13,8 @@ post_t *init_post(int id, char *title, int user_id)
 		post->title = NULL;
 	}
 	post->user_id = user_id;
-	post->events = init_tree(post);
+	if (!is_repost)
+		post->events = init_tree(post);
 	return post;
 }
 
@@ -54,4 +55,48 @@ void add_child(node_t *parent, node_t *son)
 	extend_arr((void **)&parent->sons, parent->sons_count, &parent->sons_capacity,
 			   sizeof(node_t *));
 	parent->sons[parent->sons_count++] = son;
+	son->parent = parent;
+}
+
+void free_post(post_t *post)
+{
+	if (!post)
+		return;
+	if (post->title)
+		free(post->title);
+	if (post->likes)
+		free(post->likes);
+	free(post);
+}
+
+void free_node(node_t *node)
+{
+	if (!node)
+		return;
+	for (int i = 0; i < node->sons_count; i++) {
+		free_node(node->sons[i]);
+	}
+	if (node->sons)
+		free(node->sons);
+	free_post((post_t *)node->data);
+	free(node);
+}
+
+void free_tree(tree_t *tree)
+{
+	if (!tree)
+		return;
+	free_node(tree->root);
+	free(tree);
+}
+
+void free_posts(tree_t *posts)
+{
+	for (int i = 0; i < posts->root->sons_count; i++) {
+		free_tree(((post_t *)(posts->root->sons[i]->data))->events);
+		free(posts->root->sons[i]);
+	}
+	free(posts->root->sons);
+	free(posts->root);
+	free(posts);
 }

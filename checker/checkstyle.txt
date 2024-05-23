@@ -1,21 +1,15 @@
-./posts.c:50: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./posts.c:62: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./posts.c:74: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./posts.c:85: CHECK:COMPARISON_TO_NULL: Comparison to NULL could be written "!node"
-./posts.c:85: CHECK:COMPARISON_TO_NULL: Comparison to NULL could be written "!node->data"
+./posts.c:53: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./posts.c:65: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./posts.c:77: WARNING:BRACES: braces {} are not necessary for single statement blocks
 ./posts.c:97: CHECK:COMPARISON_TO_NULL: Comparison to NULL could be written "temp"
-./posts.c:126: CHECK:BRACES: braces {} should be used on all arms of this statement
-./friends.c:41: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:54: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:128: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:146: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:172: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:220: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:227: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:234: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:240: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:246: WARNING:BRACES: braces {} are not necessary for single statement blocks
-./friends.c:252: WARNING:MISSING_EOF_NEWLINE: adding a line without newline at end of file
+./posts.c:121: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./posts.c:141: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./posts.c:155: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./posts.c:159: WARNING:BRACES: braces {} are not necessary for any arm of this statement
+./posts.c:175: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./posts.c:188: CHECK:UNNECESSARY_PARENTHESES: Unnecessary parentheses around 'post_node->data'
+./posts.c:188: WARNING:BRACES: braces {} are not necessary for any arm of this statement
+./posts.c:217: WARNING:BRACES: braces {} are not necessary for single statement blocks
 ./social_media.c:42: WARNING:LEADING_SPACE: please, no spaces at the start of a line
 ./social_media.c:43: WARNING:LEADING_SPACE: please, no spaces at the start of a line
 ./social_media.c:43: WARNING:BRACES: braces {} are not necessary for single statement blocks
@@ -29,14 +23,19 @@
 ./social_media.c:79: ERROR:CODE_INDENT: code indent should use tabs where possible
 ./social_media.c:79: WARNING:LEADING_SPACE: please, no spaces at the start of a line
 ./social_media.c:80: WARNING:LEADING_SPACE: please, no spaces at the start of a line
-./utils_posts.h:10: WARNING:LEADING_SPACE: please, no spaces at the start of a line
 ./utils_posts.h:11: WARNING:LEADING_SPACE: please, no spaces at the start of a line
 ./utils_posts.h:12: WARNING:LEADING_SPACE: please, no spaces at the start of a line
 ./utils_posts.h:13: WARNING:LEADING_SPACE: please, no spaces at the start of a line
-./utils_posts.h:17: WARNING:LEADING_SPACE: please, no spaces at the start of a line
-./utils_posts.h:18: WARNING:LEADING_SPACE: please, no spaces at the start of a line
-./utils_posts.h:22: WARNING:LEADING_SPACE: please, no spaces at the start of a line
-./utils_posts.h:23: WARNING:LEADING_SPACE: please, no spaces at the start of a line
+./utils_posts.h:14: WARNING:LEADING_SPACE: please, no spaces at the start of a line
+./utils_posts.h:15: WARNING:LEADING_SPACE: please, no spaces at the start of a line
+./utils_posts.h:19: WARNING:LEADING_SPACE: please, no spaces at the start of a line
+./utils_posts.h:20: WARNING:LEADING_SPACE: please, no spaces at the start of a line
 ./utils_posts.h:24: WARNING:LEADING_SPACE: please, no spaces at the start of a line
-./utils_posts.h:33: WARNING:MISSING_EOF_NEWLINE: adding a line without newline at end of file
-./utils_posts.c:56: WARNING:MISSING_EOF_NEWLINE: adding a line without newline at end of file
+./utils_posts.h:25: WARNING:LEADING_SPACE: please, no spaces at the start of a line
+./utils_posts.h:26: WARNING:LEADING_SPACE: please, no spaces at the start of a line
+./utils_posts.h:27: WARNING:LEADING_SPACE: please, no spaces at the start of a line
+./utils_posts.h:28: WARNING:LEADING_SPACE: please, no spaces at the start of a line
+./utils_posts.h:41: WARNING:MISSING_EOF_NEWLINE: adding a line without newline at end of file
+./utils_posts.c:55: CHECK:LONG_LINE: line length of 82 exceeds 80 columns
+./utils_posts.c:76: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./utils_posts.c:102: WARNING:MISSING_EOF_NEWLINE: adding a line without newline at end of file
