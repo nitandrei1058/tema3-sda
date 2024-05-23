@@ -9,7 +9,10 @@
 ./posts.c:175: WARNING:BRACES: braces {} are not necessary for single statement blocks
 ./posts.c:188: CHECK:UNNECESSARY_PARENTHESES: Unnecessary parentheses around 'post_node->data'
 ./posts.c:188: WARNING:BRACES: braces {} are not necessary for any arm of this statement
-./posts.c:217: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./posts.c:224: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./posts.c:234: CHECK:LONG_LINE: line length of 82 exceeds 80 columns
+./posts.c:234: WARNING:BRACES: braces {} are not necessary for single statement blocks
+./utils_feed.h:3: WARNING:MISSING_EOF_NEWLINE: adding a line without newline at end of file
 ./social_media.c:42: WARNING:LEADING_SPACE: please, no spaces at the start of a line
 ./social_media.c:43: WARNING:LEADING_SPACE: please, no spaces at the start of a line
 ./social_media.c:43: WARNING:BRACES: braces {} are not necessary for single statement blocks

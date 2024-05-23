@@ -8,24 +8,24 @@ typedef struct node_t node_t;
 typedef struct tree_t tree_t;
 typedef struct post_t post_t;
 struct node_t {
-    void *data;
-    node_t **sons;
-    node_t *parent;
-    int sons_count;
-    int sons_capacity;
+	void *data;
+	node_t **sons;
+	node_t *parent;
+	int sons_count;
+	int sons_capacity;
 };
 
 struct tree_t {
-    node_t *root;
-    int post_count;
+	node_t *root;
+	int post_count;
 };
 
 struct post_t {
-    char *title;
-    int user_id, id;
-    tree_t *events;
-    uint8_t *likes;
-    int likes_count;
+	char *title;
+	int user_id, id;
+	tree_t *events;
+	uint8_t *likes;
+	int likes_count;
 };
 
 tree_t *init_tree(post_t *root);

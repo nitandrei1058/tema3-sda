@@ -52,8 +52,8 @@ void extend_arr(void **arr, int count, int *capacity, int size)
 
 void add_child(node_t *parent, node_t *son)
 {
-	extend_arr((void **)&parent->sons, parent->sons_count, &parent->sons_capacity,
-			   sizeof(node_t *));
+	extend_arr((void **)&parent->sons, parent->sons_count,
+			   &parent->sons_capacity, sizeof(node_t *));
 	parent->sons[parent->sons_count++] = son;
 	son->parent = parent;
 }

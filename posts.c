@@ -231,7 +231,8 @@ void delete_post(int id, int repost_id, tree_t *posts_tree)
 		int post_node_index = search_post_index(posts_tree, id);
 		node_t *post_node = posts_tree->root->sons[post_node_index];
 		char *title = ((post_t *)post_node->data)->title;
-		for (int i = post_node_index; i < posts_tree->root->sons_count - 1; i++) {
+		for (int i = post_node_index; i < posts_tree->root->sons_count - 1;
+			 i++) {
 			posts_tree->root->sons[i] = posts_tree->root->sons[i + 1];
 		}
 		posts_tree->root->sons_count--;

@@ -1,54 +1,53 @@
 /**
  * The entrypoint of the homework. Every initialization must be done here
-*/
-#include <stdlib.h>
+ */
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-#include "users.h"
+#include "feed.h"
 #include "friends.h"
 #include "posts.h"
-#include "feed.h"
+#include "users.h"
 
 #include "utils_posts.h"
 
 /**
  * Initializez every task based on which task we are running
-*/
+ */
 void init_tasks(void)
 {
-	#ifdef TASK_1
+#ifdef TASK_1
 
-	#endif
+#endif
 
-	#ifdef TASK_2
+#ifdef TASK_2
 
-	#endif
+#endif
 
-	#ifdef TASK_3
+#ifdef TASK_3
 
-	#endif
+#endif
 }
 
 /**
  * Entrypoint of the program, compiled with different defines for each task
-*/
+ */
 int main(void)
 {
 	init_users();
 
 	init_tasks();
-	#ifdef TASK_1
-    int **friendship = calloc(MAX_PEOPLE, sizeof(int *));
-    for (int i = 0; i < MAX_PEOPLE; i++) {
-        friendship[i] = (int *)calloc(MAX_PEOPLE, sizeof(int));
-    }
-	#endif
+#ifdef TASK_1
+	int **friendship = calloc(MAX_PEOPLE, sizeof(int *));
+	for (int i = 0; i < MAX_PEOPLE; i++) {
+		friendship[i] = (int *)calloc(MAX_PEOPLE, sizeof(int));
+	}
+#endif
 
-	#ifdef TASK_2
+#ifdef TASK_2
 	tree_t *posts = init_posts();
-	#endif
-
+#endif
 
 	char *input = (char *)malloc(MAX_COMMAND_LEN);
 	while (1) {
@@ -58,31 +57,31 @@ int main(void)
 		if (!command)
 			break;
 
-		#ifdef TASK_1
-        handle_input_friends(input, friendship);
-		#endif
+#ifdef TASK_1
+		handle_input_friends(input, friendship);
+#endif
 
-		#ifdef TASK_2
+#ifdef TASK_2
 		handle_input_posts(input, posts);
-		#endif
+#endif
 
-		#ifdef TASK_3
+#ifdef TASK_3
 		handle_input_feed(input, friendship, posts);
-		#endif
+#endif
 	}
 
 	free_users();
 	free(input);
 
-	#ifdef TASK_1
-    for (int i = 0; i < MAX_PEOPLE; i++)
-        free(friendship[i]);
-    free(friendship);
-	#endif
+#ifdef TASK_1
+	for (int i = 0; i < MAX_PEOPLE; i++)
+		free(friendship[i]);
+	free(friendship);
+#endif
 
-	#ifdef TASK_2
+#ifdef TASK_2
 	free_posts(posts);
-	#endif
+#endif
 
 	return 0;
 }
