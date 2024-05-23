@@ -80,6 +80,38 @@ void get_reposts(int id, int repost_id, tree_t *posts_tree)
 	}
 }
 
+node_t *find_lca(node_t *node, int id_1, int id_2)
+{
+	if (((post_t *)node->data)->id == id_1 ||
+		((post_t *)node->data)->id == id_2)
+		return node;
+
+	int match = 0;
+	node_t *lca = NULL;
+
+	for (int i = 0; i < node->sons_count; i++) {
+		node_t *temp = find_lca(node->sons[i], id_1, id_2);
+		if (temp != NULL) {
+			lca = temp;
+			match++;
+		}
+	}
+
+	if (match == 2)
+		return node;
+	else
+		return lca;
+}
+
+void common_repost(int id, int id_1, int id_2, tree_t *posts_tree)
+{
+	node_t *post_node =
+		((post_t *)(search_post(posts_tree, id)->data))->events->root;
+	node_t *lca = find_lca(post_node, id_1, id_2);
+	printf("The first common repost of %d and %d is %d\n", id_1, id_2,
+		   ((post_t *)lca->data)->id);
+}
+
 void handle_input_posts(char *input, tree_t *posts)
 {
 	char *commands = strdup(input);
@@ -101,13 +133,15 @@ void handle_input_posts(char *input, tree_t *posts)
 		if (repost_char_id)
 			repost_id = atoi(repost_char_id);
 		repost(name, id, repost_id, posts);
-	} else if (!strcmp(cmd, "common-repost"))
+	} else if (!strcmp(cmd, "common-repost")) {
+		int post_id = atoi(strtok(NULL, " "));
+		int id_1 = atoi(strtok(NULL, " "));
+		int id_2 = atoi(strtok(NULL, "\n "));
+		common_repost(post_id, id_1, id_2, posts);
+	} else if (!strcmp(cmd, "like")) {
 		(void)cmd;
-	// TODO: Add function
-	else if (!strcmp(cmd, "like"))
-		(void)cmd;
-	// TODO: Add function
-	else if (!strcmp(cmd, "ratio"))
+		// TODO: Add function
+	} else if (!strcmp(cmd, "ratio"))
 		(void)cmd;
 	// TODO: Add function
 	else if (!strcmp(cmd, "delete"))
