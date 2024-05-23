@@ -10,6 +10,8 @@
 #include "posts.h"
 #include "feed.h"
 
+#include "utils_posts.h"
+
 /**
  * Initializez every task based on which task we are running
 */
@@ -36,6 +38,17 @@ int main(void)
 	init_users();
 
 	init_tasks();
+	#ifdef TASK_1
+    int **friendship = calloc(MAX_PEOPLE, sizeof(int *));
+    for (int i = 0; i < MAX_PEOPLE; i++) {
+        friendship[i] = (int *)calloc(MAX_PEOPLE, sizeof(int));
+    }
+	#endif
+
+	#ifdef TASK_2
+	tree_t *posts = init_posts();
+	#endif
+
 
 	char *input = (char *)malloc(MAX_COMMAND_LEN);
 	while (1) {
@@ -46,11 +59,11 @@ int main(void)
 			break;
 
 		#ifdef TASK_1
-		handle_input_friends(input);
+        handle_input_friends(input, friendship);
 		#endif
 
 		#ifdef TASK_2
-		handle_input_posts(input);
+		handle_input_posts(input, posts);
 		#endif
 
 		#ifdef TASK_3
@@ -60,6 +73,12 @@ int main(void)
 
 	free_users();
 	free(input);
+
+	#ifdef TASK_1
+    for (int i = 0; i < MAX_PEOPLE; i++)
+        free(friendship[i]);
+    free(friendship);
+	#endif
 
 	return 0;
 }

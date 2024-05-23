@@ -1,0 +1,132 @@
+==245060== Memcheck, a memory error detector
+==245060== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==245060== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==245060== Command: ./posts
+==245060== Parent PID: 226854
+==245060== 
+==245060== 
+==245060== HEAP SUMMARY:
+==245060==     in use at exit: 5,976 bytes in 145 blocks
+==245060==   total heap usage: 719 allocs, 574 frees, 28,632 bytes allocated
+==245060== 
+==245060== 24 bytes in 1 blocks are indirectly lost in loss record 1 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x10965F: init_node (utils_posts.c:22)
+==245060==    by 0x1096A3: init_tree (utils_posts.c:30)
+==245060==    by 0x1096C6: init_posts (utils_posts.c:36)
+==245060==    by 0x109E98: main (social_media.c:49)
+==245060== 
+==245060== 56 bytes in 7 blocks are indirectly lost in loss record 2 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x1096FC: extend_sons (utils_posts.c:43)
+==245060==    by 0x109786: add_child (utils_posts.c:54)
+==245060==    by 0x1098D2: create_repost (posts.c:23)
+==245060==    by 0x109A03: repost (posts.c:51)
+==245060==    by 0x109D2D: handle_input_posts (posts.c:104)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 112 bytes in 5 blocks are indirectly lost in loss record 3 of 14
+==245060==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x10975B: extend_sons (utils_posts.c:47)
+==245060==    by 0x109786: add_child (utils_posts.c:54)
+==245060==    by 0x1098D2: create_repost (posts.c:23)
+==245060==    by 0x109A03: repost (posts.c:51)
+==245060==    by 0x109D2D: handle_input_posts (posts.c:104)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 128 bytes in 1 blocks are indirectly lost in loss record 4 of 14
+==245060==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x10975B: extend_sons (utils_posts.c:47)
+==245060==    by 0x109786: add_child (utils_posts.c:54)
+==245060==    by 0x10982A: create_post (posts.c:14)
+==245060==    by 0x109C69: handle_input_posts (posts.c:95)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 160 bytes in 10 blocks are indirectly lost in loss record 5 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x109693: init_tree (utils_posts.c:29)
+==245060==    by 0x109632: init_post (utils_posts.c:16)
+==245060==    by 0x109805: create_post (posts.c:13)
+==245060==    by 0x109C69: handle_input_posts (posts.c:95)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 240 bytes in 10 blocks are indirectly lost in loss record 6 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x1095D0: init_post (utils_posts.c:7)
+==245060==    by 0x109805: create_post (posts.c:13)
+==245060==    by 0x109C69: handle_input_posts (posts.c:95)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 240 bytes in 10 blocks are indirectly lost in loss record 7 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x10965F: init_node (utils_posts.c:22)
+==245060==    by 0x109815: create_post (posts.c:14)
+==245060==    by 0x109C69: handle_input_posts (posts.c:95)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 240 bytes in 10 blocks are definitely lost in loss record 8 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x10965F: init_node (utils_posts.c:22)
+==245060==    by 0x1096A3: init_tree (utils_posts.c:30)
+==245060==    by 0x109632: init_post (utils_posts.c:16)
+==245060==    by 0x109805: create_post (posts.c:13)
+==245060==    by 0x109C69: handle_input_posts (posts.c:95)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 320 bytes in 20 blocks are indirectly lost in loss record 9 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x109693: init_tree (utils_posts.c:29)
+==245060==    by 0x109632: init_post (utils_posts.c:16)
+==245060==    by 0x1098B0: create_repost (posts.c:22)
+==245060==    by 0x109A03: repost (posts.c:51)
+==245060==    by 0x109D2D: handle_input_posts (posts.c:104)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 480 bytes in 20 blocks are indirectly lost in loss record 10 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x1095D0: init_post (utils_posts.c:7)
+==245060==    by 0x1098B0: create_repost (posts.c:22)
+==245060==    by 0x109A03: repost (posts.c:51)
+==245060==    by 0x109D2D: handle_input_posts (posts.c:104)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 480 bytes in 20 blocks are indirectly lost in loss record 11 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x10965F: init_node (utils_posts.c:22)
+==245060==    by 0x1096A3: init_tree (utils_posts.c:30)
+==245060==    by 0x109632: init_post (utils_posts.c:16)
+==245060==    by 0x1098B0: create_repost (posts.c:22)
+==245060==    by 0x109A03: repost (posts.c:51)
+==245060==    by 0x109D2D: handle_input_posts (posts.c:104)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 480 bytes in 20 blocks are indirectly lost in loss record 12 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x10965F: init_node (utils_posts.c:22)
+==245060==    by 0x1098C0: create_repost (posts.c:23)
+==245060==    by 0x109A03: repost (posts.c:51)
+==245060==    by 0x109D2D: handle_input_posts (posts.c:104)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 3,000 bytes in 10 blocks are indirectly lost in loss record 13 of 14
+==245060==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x1095EF: init_post (utils_posts.c:10)
+==245060==    by 0x109805: create_post (posts.c:13)
+==245060==    by 0x109C69: handle_input_posts (posts.c:95)
+==245060==    by 0x109EE0: main (social_media.c:66)
+==245060== 
+==245060== 5,736 (16 direct, 5,720 indirect) bytes in 1 blocks are definitely lost in loss record 14 of 14
+==245060==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==245060==    by 0x109693: init_tree (utils_posts.c:29)
+==245060==    by 0x1096C6: init_posts (utils_posts.c:36)
+==245060==    by 0x109E98: main (social_media.c:49)
+==245060== 
+==245060== LEAK SUMMARY:
+==245060==    definitely lost: 256 bytes in 11 blocks
+==245060==    indirectly lost: 5,720 bytes in 134 blocks
+==245060==      possibly lost: 0 bytes in 0 blocks
+==245060==    still reachable: 0 bytes in 0 blocks
+==245060==         suppressed: 0 bytes in 0 blocks
+==245060== 
+==245060== For lists of detected and suppressed errors, rerun with: -s
+==245060== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
