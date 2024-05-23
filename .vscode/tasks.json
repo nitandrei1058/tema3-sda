@@ -13,7 +13,10 @@
                 "${fileDirname}/posts.c",
                 "${fileDirname}/users.c",
                 "${fileDirname}/utils_posts.c",
+                "${fileDirname}/utils_feed.c",
+                "-D TASK_1",
                 "-D TASK_2",
+                "-D TASK_3",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

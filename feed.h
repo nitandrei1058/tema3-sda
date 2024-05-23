@@ -1,6 +1,11 @@
 #ifndef FEED_H
 #define FEED_H
 
+#include "friends.h"
+#include "posts.h"
+#include "users.h"
+#include "utils_posts.h"
+
 /**
  * Function that handles the calling of every command from task 3
  *

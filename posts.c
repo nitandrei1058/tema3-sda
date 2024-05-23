@@ -50,9 +50,8 @@ void repost(char *name, int id, int repost_id, tree_t *posts_tree)
 	node_t *post_node =
 		((post_t *)(search_post(posts_tree, id)->data))->events->root;
 	// Caut repostarea
-	if (repost_id) {
+	if (repost_id)
 		post_node = search_repost(post_node, repost_id);
-	}
 	// creez repostarea
 	add_post(name, NULL, posts_tree, post_node, 1);
 	printf("Created repost #%d for %s\n", posts_tree->post_count, name);
@@ -62,9 +61,8 @@ void dfs_reposts(node_t *node)
 {
 	printf("Repost #%d by %s\n", ((post_t *)node->data)->id,
 		   get_user_name(((post_t *)node->data)->user_id));
-	for (int i = 0; i < node->sons_count; i++) {
+	for (int i = 0; i < node->sons_count; i++)
 		dfs_reposts(node->sons[i]);
-	}
 }
 
 void get_reposts(int id, int repost_id, tree_t *posts_tree)
@@ -74,9 +72,8 @@ void get_reposts(int id, int repost_id, tree_t *posts_tree)
 	if (!repost_id) {
 		printf("%s - Post by %s\n", ((post_t *)post_node->data)->title,
 			   get_user_name(((post_t *)post_node->data)->user_id));
-		for (int i = 0; i < post_node->sons_count; i++) {
+		for (int i = 0; i < post_node->sons_count; i++)
 			dfs_reposts(post_node->sons[i]);
-		}
 	} else {
 		post_node = search_repost(post_node, repost_id);
 		dfs_reposts(post_node);
@@ -94,7 +91,7 @@ node_t *find_lca(node_t *node, int id_1, int id_2)
 
 	for (int i = 0; i < node->sons_count; i++) {
 		node_t *temp = find_lca(node->sons[i], id_1, id_2);
-		if (temp != NULL) {
+		if (temp) {
 			lca = temp;
 			match++;
 		}
@@ -118,9 +115,8 @@ void common_repost(int id, int id_1, int id_2, tree_t *posts_tree)
 void add_like(char *name, node_t *post_node)
 {
 	post_t *post = (post_t *)post_node->data;
-	if (!post->likes) {
+	if (!post->likes)
 		post->likes = (uint8_t *)calloc(MAX_PEOPLE, sizeof(uint8_t));
-	}
 	int user_id = get_user_id(name);
 	if (post->likes[user_id]) {
 		post->likes_count--;
@@ -138,9 +134,8 @@ void like_post(char *name, int id, int repost_id, tree_t *posts_tree)
 	node_t *post_node =
 		((post_t *)(search_post(posts_tree, id)->data))->events->root;
 	char *title = ((post_t *)post_node->data)->title;
-	if (repost_id) {
+	if (repost_id)
 		post_node = search_repost(post_node, repost_id);
-	}
 	add_like(name, post_node);
 
 	if (repost_id)
@@ -152,15 +147,13 @@ void get_likes(int id, int repost_id, tree_t *posts_tree)
 {
 	node_t *post_node =
 		((post_t *)(search_post(posts_tree, id)->data))->events->root;
-	if (repost_id) {
+	if (repost_id)
 		post_node = search_repost(post_node, repost_id);
-	}
 	post_t *post = (post_t *)post_node->data;
-	if (repost_id) {
+	if (repost_id)
 		printf("Repost #%d", repost_id);
-	} else {
+	else
 		printf("Post %s", post->title);
-	}
 	printf(" has %d likes\n", post->likes_count);
 }
 
@@ -172,9 +165,8 @@ void ratio_reposts(node_t *node, int *max, int *repost_id)
 		*max = ((post_t *)node->data)->likes_count;
 		*repost_id = ((post_t *)node->data)->id;
 	}
-	for (int i = 0; i < node->sons_count; i++) {
+	for (int i = 0; i < node->sons_count; i++)
 		ratio_reposts(node->sons[i], max, repost_id);
-	}
 }
 
 void ratio(int id, tree_t *posts_tree)
@@ -185,11 +177,10 @@ void ratio(int id, tree_t *posts_tree)
 	int repost_id = -1;
 	ratio_reposts(post_node, &max, &repost_id);
 
-	if (max == ((post_t *)(post_node->data))->likes_count) {
+	if (max == ((post_t *)post_node->data)->likes_count)
 		printf("The original post is the highest rated\n");
-	} else {
+	else
 		printf("Post %d got ratio'd by repost %d\n", id, repost_id);
-	}
 }
 
 int search_repost_index(node_t *node, int repost_id)
@@ -221,9 +212,8 @@ void delete_post(int id, int repost_id, tree_t *posts_tree)
 			((post_t *)(search_post(posts_tree, id)->data))->events->root;
 		char *title = ((post_t *)post_node->data)->title;
 		int post_node_index = 0;
-		for (int i = post_node_index; i < post_node->sons_count - 1; i++) {
+		for (int i = post_node_index; i < post_node->sons_count - 1; i++)
 			post_node->sons[i] = post_node->sons[i + 1];
-		}
 		post_node->sons_count--;
 		free_node(post_node->sons[post_node->sons_count]);
 		printf("Deleted repost #%d of post %s\n", repost_id, title);

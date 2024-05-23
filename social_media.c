@@ -40,9 +40,8 @@ int main(void)
 	init_tasks();
 #ifdef TASK_1
 	int **friendship = calloc(MAX_PEOPLE, sizeof(int *));
-	for (int i = 0; i < MAX_PEOPLE; i++) {
+	for (int i = 0; i < MAX_PEOPLE; i++)
 		friendship[i] = (int *)calloc(MAX_PEOPLE, sizeof(int));
-	}
 #endif
 
 #ifdef TASK_2
@@ -57,13 +56,14 @@ int main(void)
 		if (!command)
 			break;
 
+#ifdef TASK_2
+		handle_input_posts(input, posts);
+#endif
+
 #ifdef TASK_1
 		handle_input_friends(input, friendship);
 #endif
 
-#ifdef TASK_2
-		handle_input_posts(input, posts);
-#endif
 
 #ifdef TASK_3
 		handle_input_feed(input, friendship, posts);

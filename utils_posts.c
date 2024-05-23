@@ -73,9 +73,8 @@ void free_node(node_t *node)
 {
 	if (!node)
 		return;
-	for (int i = 0; i < node->sons_count; i++) {
+	for (int i = 0; i < node->sons_count; i++)
 		free_node(node->sons[i]);
-	}
 	if (node->sons)
 		free(node->sons);
 	free_post((post_t *)node->data);
