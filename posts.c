@@ -212,12 +212,13 @@ void delete_post(int id, int repost_id, tree_t *posts_tree)
 		char *title = ((post_t *)post_node->data)->title;
 
 		// cauta si sterge repostul specificat
-		int post_node_index = 0;
+		int post_node_index = search_repost_index(post_node, repost_id);
+		node_t *repost_node = post_node->sons[post_node_index];
 		for (int i = post_node_index; i < post_node->sons_count - 1; i++)
 			post_node->sons[i] = post_node->sons[i + 1];
 		post_node->sons_count--;
 		// elibereaza memoria repostului
-		free_node(post_node->sons[post_node->sons_count]); 
+		free_node(repost_node);
 		printf("Deleted repost #%d of post %s\n", repost_id, title);
 	} else {
 		// cauta si sterhe postarea specificata

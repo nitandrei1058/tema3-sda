@@ -53,7 +53,7 @@ int main(void)
 		char *command = fgets(input, MAX_COMMAND_LEN, stdin);
 
 		// If fgets returns null, we reached EOF
-		if (!command)
+		if (!command || strcmp(command, "exit\n") == 0)
 			break;
 
 #ifdef TASK_2
