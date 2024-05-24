@@ -127,3 +127,54 @@ node_t *search_post(tree_t *posts, int post_id)
 	}
 	return NULL;
 }
+
+node_t *find_lca(node_t *node, int id_1, int id_2)
+{
+	// cauta recursiv cel mai apropiat stramos comun
+	if (((post_t *)node->data)->id == id_1 ||
+		((post_t *)node->data)->id == id_2)
+		return node;
+
+	int match = 0;
+	node_t *lca = NULL;
+
+	for (int i = 0; i < node->sons_count; i++) {
+		node_t *temp = find_lca(node->sons[i], id_1, id_2);
+		if (temp) {
+			lca = temp;
+			match++;
+		}
+	}
+
+	if (match == 2)
+		return node;
+	else
+		return lca;
+}
+
+int search_repost_index(node_t *node, int repost_id)
+{
+	// parcurge lista de fii si ai nodului curent
+	for (int i = 0; i < node->sons_count; i++) {
+		if (((post_t *)node->sons[i]->data)->id == repost_id)
+			return i;
+
+		// cauta recursiv in subarborii nodului curent
+		int index = search_repost_index(node->sons[i], repost_id);
+		if (index != -1)
+			return index;
+	}
+	return -1;
+}
+
+int search_post_index(tree_t *posts, int post_id)
+{
+	node_t *node = posts->root;
+
+	// parcurge lista de fii ai radacinii arborelui
+	for (int i = 0; i < node->sons_count; i++) {
+		if (((post_t *)node->sons[i]->data)->id == post_id)
+			return i;
+	}
+	return -1;
+}

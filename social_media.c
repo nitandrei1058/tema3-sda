@@ -53,17 +53,16 @@ int main(void)
 		char *command = fgets(input, MAX_COMMAND_LEN, stdin);
 
 		// If fgets returns null, we reached EOF
-		if (!command || strcmp(command, "exit\n") == 0)
+		if (!command)
 			break;
-
-#ifdef TASK_2
-		handle_input_posts(input, posts);
-#endif
 
 #ifdef TASK_1
 		handle_input_friends(input, friendship);
 #endif
 
+#ifdef TASK_2
+		handle_input_posts(input, posts);
+#endif
 
 #ifdef TASK_3
 		handle_input_feed(input, friendship, posts);

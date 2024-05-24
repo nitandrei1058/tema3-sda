@@ -20,7 +20,7 @@ void add_post(char *name, char *title, tree_t *posts, node_t *parent_post,
 void create_post(char *name, char *title, tree_t *posts)
 {
 	// adauga postarea la radacina arborelui
-	add_post(name, title, posts, posts->root, 0); 
+	add_post(name, title, posts, posts->root, 0);
 	printf("Created %s for %s\n", title, name);
 }
 
@@ -61,30 +61,6 @@ void get_reposts(int id, int repost_id, tree_t *posts_tree)
 		// afiseaza reposturile pentru repostul specificat
 		dfs_reposts(post_node);
 	}
-}
-
-node_t *find_lca(node_t *node, int id_1, int id_2)
-{
-	// cauta recursiv cel mai apropiat stramos comun
-	if (((post_t *)node->data)->id == id_1 ||
-		((post_t *)node->data)->id == id_2)
-		return node;
-
-	int match = 0;
-	node_t *lca = NULL;
-
-	for (int i = 0; i < node->sons_count; i++) {
-		node_t *temp = find_lca(node->sons[i], id_1, id_2);
-		if (temp) {
-			lca = temp;
-			match++;
-		}
-	}
-
-	if (match == 2)
-		return node;
-	else
-		return lca;
 }
 
 void common_repost(int id, int id_1, int id_2, tree_t *posts_tree)
@@ -176,33 +152,6 @@ void ratio(int id, tree_t *posts_tree)
 		printf("Post %d got ratio'd by repost %d\n", id, repost_id);
 }
 
-int search_repost_index(node_t *node, int repost_id)
-{
-	// parcurge lista de fii si ai nodului curent
-	for (int i = 0; i < node->sons_count; i++) {
-		if (((post_t *)node->sons[i]->data)->id == repost_id)
-			return i;
-
-		// cauta recursiv in subarborii nodului curent
-		int index = search_repost_index(node->sons[i], repost_id);
-		if (index != -1)
-			return index;
-	}
-	return -1;
-}
-
-int search_post_index(tree_t *posts, int post_id)
-{
-	node_t *node = posts->root;
-
-	// parcurge lista de fii ai radacinii arborelui
-	for (int i = 0; i < node->sons_count; i++) {
-		if (((post_t *)node->sons[i]->data)->id == post_id)
-			return i;
-	}
-	return -1;
-}
-
 void delete_post(int id, int repost_id, tree_t *posts_tree)
 {
 	if (repost_id) {
@@ -214,25 +163,33 @@ void delete_post(int id, int repost_id, tree_t *posts_tree)
 		// cauta si sterge repostul specificat
 		int post_node_index = search_repost_index(post_node, repost_id);
 		node_t *repost_node = post_node->sons[post_node_index];
+
+		// mut toate elementele ca sa scot elementul de pe pozitia
+		// post_node_index
 		for (int i = post_node_index; i < post_node->sons_count - 1; i++)
 			post_node->sons[i] = post_node->sons[i + 1];
+		// micsorez vectorul
 		post_node->sons_count--;
+
 		// elibereaza memoria repostului
 		free_node(repost_node);
 		printf("Deleted repost #%d of post %s\n", repost_id, title);
 	} else {
-		// cauta si sterhe postarea specificata
+		// cauta si sterge postarea specificata
 		int post_node_index = search_post_index(posts_tree, id);
 		node_t *post_node = posts_tree->root->sons[post_node_index];
 		char *title = ((post_t *)post_node->data)->title;
-		
-		// elibereaza memoria pentru postare si toate reposturile asociate
+
+		// mut toate elementele ca sa scot elementul de pe pozitia
+		// post_node_index
 		for (int i = post_node_index; i < posts_tree->root->sons_count - 1;
 			 i++) {
 			posts_tree->root->sons[i] = posts_tree->root->sons[i + 1];
 		}
+		// micsorez vectorul
 		posts_tree->root->sons_count--;
 		// elibereaza memoria subarborelui
+
 		free_tree(((post_t *)(post_node->data))->events);
 		free(post_node);
 		printf("Deleted %s\n", title);

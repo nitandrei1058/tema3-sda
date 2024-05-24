@@ -39,5 +39,8 @@ void free_tree(tree_t *tree);
 void free_posts(tree_t *posts);
 node_t *search_post(tree_t *posts, int post_id);
 node_t *search_repost(node_t *node, int repost_id);
+node_t *find_lca(node_t *node, int id_1, int id_2);
+int search_repost_index(node_t *node, int repost_id);
+int search_post_index(tree_t *posts, int post_id);
 
 #endif // UTILS_POSTS_H
