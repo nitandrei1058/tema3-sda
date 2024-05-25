@@ -1,0 +1,110 @@
+Echipa tema 3 SD:
+- stelian.tascu - Tascu Stelian-Andrei
+- george_andrei.nita - Nita-Pirvu George-Andrei
+TASK 1 - Retea de prietenie
+
+- am folosit matricea de adiacenta pentru accesarea rapida a datelor
+- 'add_friendship' creeaza o legatura bidirectionala intre doi utilizatori
+- functia obtine ID-urile utilizatorilor pe baza nuemlor folosind functia
+'get_user_id' si actualizeaza matricea pentru a reflecta noua legatura, setand
+valorile corespunzatoare la 'true',iar la final afiseaza un mesaj de confirmare
+- ' remove_friendship' sterge legatura bidimensionala dintre doi utilizatori
+- functia obtine ID-urile utilizatorilor si actualizeaza matricea pentru a 
+sterge legatura bidirectionala, setand valorile corespunzatoare la 'false',
+iar la final afiseaza un mesaj de confirmare
+- 'suggest_friends' sugereaza prieteni unui utilizator pe baza prietenilor
+comuni
+- functia obtine ID-urile utilizatorului folosind 'get_user_id_ si apoiparcurge
+toti utilizatorii pentru a gasi prietenii prietenilor (j) care nu sunt prieteni
+cu utilizatorul curent (i) si daca se gasesc sugestii, acestea sunt afisate
+- functia find_distance calculeaza distanta intre doi utilizatori in reteaua
+de prietenie
+- functia utilizeaza algoritmul BFS pentru a calcula cea mai scurta distanta
+intre doi utilizatori si initializeaza un vector de distante cu INT_MAX si un
+vector de vizite cu 'false'
+- parcurge graful utilizand o coada pentru BFS si daca se gaseste o cale intre
+utilizatori, distanta este afisata
+- functia 'common_friends' obtine ID-urile utilizatorilor si parcurge toti
+utilizatorii pentru a gasi prietenii comuni
+- verifica daca un utilizator (i) este prieten atat cu user1, cat si cu user2,
+si daca exista prieteni comuni, acestia sunt afisati
+- functia obtine ID-ul utilizatorului si parcurge matricea pentru a numara
+prieteniile existente si afiseaza numarul
+- functia 'most_popular' obtine ID-ul utilizatorului si parcurge prietenii
+utilizatorului pentru a calcula numarul de conexiuni pentru fiecare prieten
+- verifica daca un prieten are mai multe conexiuni decat utilizatorul sau alti
+prieteni si afiseaza cel mai popular prieten 
+
+
+TASK 2 - Postari si reposturi
+
+1. posts.c
+- functia 'create_post' apeleaza 'add_post' pentru a adauga o noua postare la
+radacina arborelui posts, iar fiecare postare primeste un ID unic, iar in final
+functia afiseaza un mesaj de confirmare
+- functia 'repost' cauta postarea originala si repostul original. apo, creeaza
+un nou repost ca fiu al postarii sau repostului specificat si in final functia
+afiseaza un mesaj de confirmare
+- functia utilizeaza o cautare DFS pentru a gasi cel mai apropiat stramos comun
+al celor doua reposturi in arborele postarii originale si fiseaza ID-ul
+repostului comun
+- functia 'like_post' cauta postarea sau repostul specificat si actualizeaza
+numarul de like-uri. in caz ca utilizatorul a dat deja like, acesta se elimina
+- functia 'get_likes' cauta postarea sau repostul specificat si afiseaza
+numarul de like-uri asociat
+- functia 'ratio' parcurge arborele postarii originale si determina repostul cu
+cele mai multe like-uri. in caz ca acest repost are mai multe like-uri decat
+postarea originala, se afiseaza un mesaj
+- functia 'delete_post' sterge postarea sau repostul specificat si toate
+reposturile asociate
+- functia 'get_reposts' parcurge arborele de reposturi al postarii sau
+repostului specificat si afiseaza toate reposturile in ordine
+- functia 'handle_input_posts' analizeaza comanda de intrare si apeleaza
+functia corespunzatoare pe baza comenzii
+
+2. utils_posts.c
+- functia 'init_post' creeaza si initializeaza o noua postare sau repost
+- functia 'init_node' creeaza si initializeaza un nod pentru arborele de
+postari
+- functia 'init_tree' creeaza si initializeaza un arbore cu un nod radacina
+specificat
+- functia 'init_posts' creeaza si initializeaza arborele principal de postari
+- functia 'extend_arr' realoca memoria pentru un array dinamic daca este necesar
+- functia 'add_child' adauga un nod fiu la un nod parinte din arbore
+- functia 'free_post' elibereaza memoria alocata pentru o postare
+- functia 'free_node' elibereaza memoria alocata pentru un nod si toate
+nodurile sale descendente
+- functia 'free_tree' elibereaza memoria alocata pentru un arbore si toate
+nodurile sale
+- functia 'free_posts' elibereaza memoria alocata pentru arborele principal
+de postari si toate nodurile sale
+- functia 'search_repost' cauta un repost specificat intr-un nod si
+in subarborele sau
+- functia 'search_post' cauta o postare specificata in arborele de postari
+
+
+TASK 3 - Social Media
+- functia 'feed' obtine ID-ului utilizatorului folosind 'get_user_id(name)' si
+nodurile postarilor sunt accesate din arborele 'posts_tree'
+- functia parcurge postarile in ordine inversa, afisand cele mai recente
+postari si apoi verifica daca postarea apartine utilizatorului sau prietenilor
+acestuia, utilizand matricea de adiacenta
+- daca postarea este relevanta, aceasta este afisata, iar 'feed_size' este
+decrementat pana cand atinge zero
+- functia 'view_profile' obtine ID-ul utilizatorului si nodurile postarilor din
+arborele 'posts_tree' si afiseaza toate postarile utilizatorului parcurgand
+nodurile si dupa verifica daca 'user_id' al postarii corespunde utilizatorului
+- pentru a afisa repostarile, functia parcurge nodurile si verifica daca
+utilizatorul a repostat acele postari utilizand 'check_user_reposted'
+- functia 'friends_repost' obtine ID-ul utilizatorului si nodul postarii
+specificate din arborele 'posts_tree' folosind 'search_post'
+- parcurge repostarile nodului si verifica daca prietenii utilizatorului
+au dat repost utilizand matricea de adiacenta, iar daca un prieten a dat repost
+acesta este afisat
+- functia 'common_group' obtine ID-ul utilizatorului si aloca memorie pentru
+gestionarea clicii si a prietenilor
+- initializeaza 'clique' si 'max_clique' pentru a urmari grupul de prieteni
+- retine toti prietenii utilizatorului intr-un array 'friends' si utilizeaza
+backtracking pentru a gasi cea mai mare clica de prieteni folosind
+'clique_bktk', iar apoi afiseaza grupul de prieteni si elibereaza memoria 
+alocata

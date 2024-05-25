@@ -11,13 +11,19 @@
 
 void feed(char *name, int feed_size, int **friendship, tree_t *posts_tree)
 {
+	// obtine ID-ul utilizatorului
 	int user_id = get_user_id(name);
+	// obtine nodurile postarilor
 	node_t **post_nodes = posts_tree->root->sons;
 
+	// parcurge postarile in ordine inversa pentru a afisa cele mai recente
+	// postari
 	for (int i = posts_tree->root->sons_count - 1; i >= 0 && feed_size; i--) {
 		post_t *post = (post_t *)post_nodes[i]->data;
+		// verifica daca postarea apartine utilizatorului sau prietenilor lui
 		if (post->user_id == user_id || friendship[user_id][post->user_id]) {
 			printf("%s: %s\n", get_user_name(post->user_id), post->title);
+			// decrementeaza dimensiunea feed-ului
 			feed_size--;
 		}
 	}
@@ -25,15 +31,19 @@ void feed(char *name, int feed_size, int **friendship, tree_t *posts_tree)
 
 void view_profile(char *name, tree_t *posts_tree)
 {
+	// obtine ID-ul utilizatorului
 	int user_id = get_user_id(name);
+	// obtine nodurile postarilor
 	node_t **post_nodes = posts_tree->root->sons;
 
+	// afiseaza toate postarile utilizatorului
 	for (int i = 0; i < posts_tree->root->sons_count; i++) {
 		post_t *post = (post_t *)post_nodes[i]->data;
 		if (post->user_id == user_id)
 			printf("Posted: %s\n", post->title);
 	}
 
+	// afiseaza toate repostarile utilizatorului
 	for (int i = 0; i < posts_tree->root->sons_count; i++) {
 		node_t *post_node = ((post_t *)post_nodes[i]->data)->events->root;
 		if (check_user_reposted(post_node, user_id))
@@ -43,9 +53,12 @@ void view_profile(char *name, tree_t *posts_tree)
 
 void friends_repost(char *name, int id, int **friendship, tree_t *posts_tree)
 {
+	// obtine ID-ul utilizatorului
 	int user_id = get_user_id(name);
 	node_t *post_node =
 		((post_t *)(search_post(posts_tree, id)->data))->events->root;
+
+	// parcurge repostarile si afiseaza prietenii care au dat repost
 	for (int i = 0; i < post_node->sons_count; i++) {
 		post_t *post = (post_t *)post_node->sons[i]->data;
 		if (friendship[user_id][post->user_id])
@@ -55,8 +68,10 @@ void friends_repost(char *name, int id, int **friendship, tree_t *posts_tree)
 
 void common_group(char *name, int **friendship)
 {
+	// obtine ID-ul utilizatorului
 	int user_id = get_user_id(name);
 
+	// aloca memorie pentru gestionarea clicii si a prietenilor
 	uint8_t *clique = calloc(MAX_PEOPLE, sizeof(uint8_t));
 	uint8_t *max_clique = calloc(MAX_PEOPLE, sizeof(uint8_t));
 	int max_clique_size = 1;
@@ -71,6 +86,7 @@ void common_group(char *name, int **friendship)
 		if (friendship[user_id][i])
 			friends[friends_size++] = i;
 
+	// gaseste cea mai mare clica de prieteni folosind backtracking
 	clique_bktk(friendship, friends, 0, friends_size, clique, max_clique,
 				&max_clique_size, &clique_size);
 
